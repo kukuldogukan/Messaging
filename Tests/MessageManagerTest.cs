@@ -38,19 +38,5 @@ namespace Tests
             Assert.AreEqual(receiverId, actual.ReceiverUserId);
             Assert.AreEqual(text, actual.MessageText);
         }
-
-        //[Test]
-        //public void Send_methodu_kullanici_engellendiyse_mesaj_gondermez()
-        //{
-        //    var sender = SetupUser("sender");
-        //    var receiver = SetupUser("receiver");
-        //    var text = "TestText";
-
-        //    AddUserBlockedUserMapping(receiver.Id, sender.Id);
-
-        //    var actual = messageService.Object.Send(receiver.UserCode, sender.UserCode, text);
-
-        //    Assert.AreEqual(actual.Message, Messages.CanNotSendMessageDueToTheBlock);
-        //}
     }
 }
