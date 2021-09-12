@@ -8,8 +8,6 @@ namespace Business.Abstract
 {
     public interface IErrorLogService
     {
-        IDataResult<ErrorLog> GetById(int errorLogId);
-        IDataResult<List<ErrorLog>> GetList();
         IResult Add(ErrorLog errorLog);
     }
 }

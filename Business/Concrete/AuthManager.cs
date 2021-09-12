@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Business.Abstract;
 using Business.Constants;
 using Core.Entities.Concrete;

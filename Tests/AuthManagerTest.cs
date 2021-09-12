@@ -1,14 +1,14 @@
 using Business.Concrete;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using NUnit.Framework;
 
 namespace Tests
 {
-    [TestClass]
+    [TestFixture]
     public class AuthManagerTest
     {
         private Mock<AuthManager> authManager = new Mock<AuthManager>();
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
 

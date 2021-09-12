@@ -5,6 +5,7 @@ using Entities.Concrete;
 using Moq;
 using System;
 using Castle.Core.Internal;
+using Entities.Concrete.Enums;
 
 namespace Tests
 {
@@ -14,6 +15,7 @@ namespace Tests
         internal Mock<IUserService> userService = new Mock<IUserService>();
         internal Mock<IUserBlockedUserMappingService> blockerUserService = new Mock<IUserBlockedUserMappingService>();
         internal Mock<IErrorLogService> errorLogService = new Mock<IErrorLogService>();
+        internal Mock<IUserActivityService> userActivityService = new Mock<IUserActivityService>();
         internal Message MockMessage(int receiverUserId, int senderUserId, string messageText)
         {
             var message = new Message
@@ -61,6 +63,29 @@ namespace Tests
                 .Returns(() => new DataResult<UserBlockedUserMapping>(result, true));
             blockerUserService.Setup(t => t.IsUserBlocked(receiver, blocker)).Returns(false);
             errorLogService.Setup(t => t.Add(It.IsAny<ErrorLog>())).Returns(() => new Result(true));
+        }
+
+        internal UserActivity AddUserActivity(UserActivities userActivity)
+        {
+            var result = new UserActivity
+            {
+                ActivityId = userActivity
+            };
+            userActivityService.Setup(t => t.Add(result)).Returns(() => new Result(true));
+
+            return result;
+        }
+
+        internal ErrorLog AddErrorLog(string errorMessage, int userId)
+        {
+            var result = new ErrorLog
+            {
+                ErrorMessage = errorMessage,
+                UserId = userId
+            };
+            errorLogService.Setup(t => t.Add(result)).Returns(() => new Result(true));
+
+            return result;
         }
     }
 }

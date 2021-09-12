@@ -20,31 +20,6 @@ namespace WebAPI.Controllers
             _errorLogService = errorLogService;
         }
 
-        [HttpGet("getall")]
-        [Authorize(Roles = "Product.List")]
-        public IActionResult GetList()
-        {
-            var result = _errorLogService.GetList();
-
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
-            return BadRequest(result.Message);
-        }
-
-        [HttpGet("getbyerrorlogid")]
-        public IActionResult GetByErrorLogId(int errorLogId)
-        {
-            var result = _errorLogService.GetById(errorLogId);
-
-            if (result.Success)
-            {
-                return Ok(result.Data);
-            }
-            return BadRequest(result.Message);
-        }
-
         [HttpPost("add")]
         public IActionResult Add(ErrorLog errorLog)
         {

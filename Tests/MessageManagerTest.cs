@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Business.Abstract;
-using Business.Concrete;
-using Business.Constants;
-using Core.Utilities.Results;
-using Entities.Concrete;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using NUnit.Framework;
-using NUnit.Framework.Internal;
+﻿using NUnit.Framework;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace Tests
 {
-    [TestClass]
+    [TestFixture]
     public class MessageManagerTest : TestBase
     {
    

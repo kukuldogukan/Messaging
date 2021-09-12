@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace Tests
 {
-    [TestClass]
+    [TestFixture]
     public class UserBlockedUserMappingTest : TestBase
     {
         [Test]
