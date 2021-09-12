@@ -34,4 +34,4 @@ JSON - {
     "currentUserId" : 1
 }
 
-# ErrorLog ve UserActivity'ler apiCall ile değil DB kayıt atarak çalışmaktadır. Aynı isimli tablolardan select ile kayıtlar elde edilebilir.
+### ErrorLog ve UserActivity'ler apiCall ile değil DB kayıt atarak çalışmaktadır. Aynı isimli tablolardan select ile kayıtlar elde edilebilir.
