@@ -1,9 +1,9 @@
 # Messaging
 
-Projeyi çekip "docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d" komutu hem sql hem api ayağa kaldırılabilir.
-Tablolar otomatik oluşacaktır.
-MS-SQL ve .Net Core kullanılmıştır.
-Unit test için NUnit kullanılmıştır.
+- Projeyi çekip "docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d" komutu hem sql hem api ayağa kaldırılabilir. 
+- Tablolar otomatik ve boş oluşacaktır.
+- MS-SQL ve .Net Core kullanılmıştır.
+- Unit test için NUnit kullanılmıştır.
 
 ## Register İçin
 POST - http://localhost:8000/api/auth/register
