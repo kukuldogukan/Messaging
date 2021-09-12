@@ -9,11 +9,9 @@ namespace Business.Concrete
     public class UserActivityManager : IUserActivityService
     {
         private IUserActivityDal _userActivityDal;
-        private IUserService _userService;
-        public UserActivityManager(IUserActivityDal userActivityDal, IUserService userService)
+        public UserActivityManager(IUserActivityDal userActivityDal)
         {
             _userActivityDal = userActivityDal;
-            _userService = userService;
         }
 
         public IResult Add(UserActivity userActivity)

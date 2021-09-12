@@ -4,7 +4,6 @@ using Business.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
-using Core.Utilities.Security.JWT;
 using Entities.Concrete;
 using Entities.Concrete.Enums;
 using Entities.Dtos;
@@ -15,12 +14,12 @@ namespace Business.Concrete
     {
         private IUserService _userService;
         private IUserActivityService _userActivity;
-        private ITokenHelper _tokenHelper;
 
-        public AuthManager(IUserService userService, ITokenHelper tokenHelper, IUserActivityService userActivity)
+
+        public AuthManager(IUserService userService,  IUserActivityService userActivity)
         {
             _userService = userService;
-            _tokenHelper = tokenHelper;
+
             _userActivity = userActivity;
         }
 
