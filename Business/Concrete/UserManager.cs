@@ -17,11 +17,6 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-        public List<OperationClaim> GetClaims(User user)
-        {
-            return _userDal.GetClaims(user);
-        }
-
         public void Add(User user)
         {
             _userDal.Add(user);
@@ -30,6 +25,11 @@ namespace Business.Concrete
         public User GetByMail(string email)
         {
             return _userDal.Get(u => u.Email == email);
+        }
+
+        public User GetByUserCode(string userCode)
+        {
+            return _userDal.Get(u => u.UserCode == userCode);
         }
     }
 }

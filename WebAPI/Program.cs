@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Business.DependencyResolvers.Autofac;
+using DataAccess.Concrete.EntityFramework.Contexts;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace WebAPI
 {
@@ -16,7 +18,9 @@ namespace WebAPI
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+            CreateDatabase(host);
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -30,5 +34,16 @@ namespace WebAPI
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        public static void CreateDatabase(IHost host)
+        {
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+                var messagingContext = services.GetRequiredService<MessagingContext>();
+                MessagingContextSeed.SeedAsync(messagingContext);
+            }
+        }
     }
 }
